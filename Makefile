@@ -1,6 +1,6 @@
 PREFIX = /usr/local/bin
 
-SCRIPT = $(notdir $(CURDIR)).sh
+SCRIPT = ignore_moves.sh
 FILE_PATH = $(CURDIR)/$(SCRIPT)
 INSTALL_FILE_PATH = $(PREFIX)/$(basename $(SCRIPT))
 
@@ -9,6 +9,7 @@ test:
 
 $(INSTALL_FILE_PATH):
 	cp $(FILE_PATH) $(INSTALL_FILE_PATH)
+	chmod 555 $(INSTALL_FILE_PATH)
 
 .PHONY: install
 install: $(INSTALL_FILE_PATH)
