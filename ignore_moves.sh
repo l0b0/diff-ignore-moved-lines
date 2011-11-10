@@ -16,7 +16,7 @@
 #               Remove moved lines from existing patch.
 #
 # BUGS
-#        https://github.com/l0b0/diff-ignore-moved-lines
+#        https://github.com/l0b0/diff-ignore-moved-lines/issues
 #
 # COPYRIGHT
 #    Copyright (C) 2011 Victor Engmark
