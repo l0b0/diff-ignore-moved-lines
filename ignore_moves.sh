@@ -42,7 +42,7 @@ set -o errexit -o noclobber -o nounset -o pipefail
 # Also, convert unified diffs to "normal" diffs
 diff_lines="$(grep '^[><+-] ' | sed 's/^+/>/;s/^-/</')" || exit 0
 
-while IFS= read -r line
+while IFS= read -r line || [ -n "$line" ]
 do
     contents="${line:2}"
     count_removes="$(grep -cFxe "< $contents" <<< "$diff_lines" || true)"
@@ -55,10 +55,5 @@ do
 
     echo "$line"
 done <<< "$diff_lines"
-
-if [ "${line+defined}" = defined ]
-then
-    printf "$line"
-fi
 
 exit 1 # Diff exists, so we should use the diff exit code
