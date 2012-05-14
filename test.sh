@@ -24,7 +24,7 @@
 #
 ################################################################################
 
-declare -r cmd="$(dirname -- "$0")/ignore_moves.sh"
+declare -r cmd="$(dirname -- "$0")/$(basename -- "$(dirname -- "$0")").sh"
 
 test_empty() {
     file1=$'test'
