@@ -1,25 +1,25 @@
 #!/usr/bin/env bash
 #
 # NAME
-#        ignore_moves.sh - Strip moved lines from a diff
+#        diff-ignore-moved-lines.sh - Strip moved lines from a diff
 #
 # SYNOPSIS
-#        ignore_moves
+#        diff-ignore-moved-lines
 #
 # DESCRIPTION
 #
 # EXAMPLES
-#        diff -u ... | ignore_moves
+#        diff -u ... | diff-ignore-moved-lines
 #               Remove lines from diff output.
 #
-#        ignore_moves < file.diff
+#        diff-ignore-moved-lines < file.diff
 #               Remove moved lines from existing patch.
 #
 # BUGS
 #        https://github.com/l0b0/diff-ignore-moved-lines/issues
 #
 # COPYRIGHT
-#    Copyright (C) 2011 Victor Engmark
+#    Copyright (C) 2011-2012 Victor Engmark
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
