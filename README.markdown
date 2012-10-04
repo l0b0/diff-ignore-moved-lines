@@ -6,7 +6,7 @@ Diffs often show a lot of lines which have simply been moved around, for example
 Installation
 ------------
 
-    make test
+    make test # Optional; requires shunit2
     sudo make install
 
 Usage
