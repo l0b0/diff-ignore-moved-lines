@@ -41,14 +41,14 @@ set -o errexit -o noclobber -o nounset -o pipefail
 
 # Only output diff lines (context lines and such would not be accurate anyway)
 # Also, convert unified diffs to "normal" diffs
-diff_lines="$(grep '^[><+-] ' | sed 's/^+/>/;s/^-/</')" || exit 0
+diff_lines=$(grep '^[><+-] ' | sed 's/^+/>/;s/^-/</') || exit 0
 
-while IFS= read -r line || [ -n "$line" ]
+while IFS= read -r line || (( ${#line} ))
 do
-    contents="${line:2}"
-    count_removes="$(grep -cFxe "< $contents" <<< "$diff_lines" || true)"
-    count_adds="$(grep -cFxe "> $contents" <<< "$diff_lines" || true)"
-    if [[ "$count_removes" -eq "$count_adds" ]]
+    contents=${line:2}
+    count_removes=$(grep -cx "< $contents" <<< $diff_lines)
+    count_adds=$(grep -cx "> $contents" <<< $diff_lines)
+    if (( count_removes == count_adds ))
     then
         # Line has been moved; skip it.
         continue
