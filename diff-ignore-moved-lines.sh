@@ -10,6 +10,7 @@
 #
 # EXAMPLES
 #        diff -u ... | diff-ignore-moved-lines
+#        git diff ... | diff-ignore-moved-lines
 #               Remove lines from diff output.
 #
 #        diff-ignore-moved-lines < file.diff
