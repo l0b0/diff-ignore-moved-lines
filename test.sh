@@ -91,8 +91,13 @@ Yoda
         "Moved and changed lines" \
         "$diff"x \
         "$(diff <(printf %s "$file1") <(printf %s "$file2") | "$cmd" || printf x)"
+
+    assertEquals \
+        "Moved and changed lines (unified)" \
+        "$diff"x \
+        "$(diff -u <(printf %s "$file1") <(printf %s "$file2") | "$cmd" || printf x)"
 }
 
 # load and run shUnit2
 test -n "${ZSH_VERSION:-}" && SHUNIT_PARENT=$0
-. /usr/share/shunit2/shunit2
+. shunit2

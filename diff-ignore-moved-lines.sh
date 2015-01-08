@@ -20,7 +20,7 @@
 #        https://github.com/l0b0/diff-ignore-moved-lines/issues
 #
 # COPYRIGHT
-#    Copyright (C) 2011-2012 Victor Engmark
+#    Copyright (C) 2011-2014 Victor Engmark
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -41,7 +41,7 @@ set -o errexit -o noclobber -o nounset -o pipefail
 
 # Only output diff lines (context lines and such would not be accurate anyway)
 # Also, convert unified diffs to "normal" diffs
-diff_lines="$(grep '^[><+-] ' | sed 's/^+/>/;s/^-/</')" || exit 0
+diff_lines="$(grep -v '^\(---\|+++\|@@ \)'| grep '^\([><] \)\|[+-]' | sed 's/^+/> /;s/^-/< /')" || exit 0
 
 while IFS= read -r line || [ -n "$line" ]
 do
