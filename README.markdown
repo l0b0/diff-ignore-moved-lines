@@ -12,5 +12,5 @@ Installation
 Usage
 -----
 
-    diff ... | ignore_moves
-    ignore_moves < file.patch
+    diff ... | diff-ignore-moved-lines
+    diff-ignore-moved-lines < file.patch
